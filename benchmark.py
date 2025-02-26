@@ -101,11 +101,32 @@ llm_providers = {
         "api_key": os.getenv("Novita_API_KEY"),
         "model": "deepseek/deepseek-r1",
     },
+    "Openrouter@deepseek-chat": {
+        "url": "https://openrouter.ai/api/v1",
+        "api_key": os.getenv("Openrouter_API_KEY"),
+        "model": "deepseek/deepseek-r1:free",
+    },
+    "Openrouter@deepseek-reasoner": {
+        "url": "https://openrouter.ai/api/v1",
+        "api_key": os.getenv("Openrouter_API_KEY"),
+        "model": "deepseek/deepseek-chat:free",
+    },
+    "Targon@deepseek-chat": {
+        "url": "https://api.targon.com/v1",
+        "api_key": os.getenv("Targon_API_KEY"),
+        "model": "deepseek-ai/DeepSeek-R1",
+    },
+    "Targon@deepseek-reasoner": {
+        "url": "https://api.targon.com/v1",
+        "api_key": os.getenv("Targon_API_KEY"),
+        "model": "deepseek-ai/DeepSeek-V3",
+    },
     # 添加更多提供商
 }
 
+
 def benchmark_provider(name, config):
-    logging.info(f"request {name}: {config["model"]} endpoint.")
+    logging.info(f"request {name}: {config['model']} endpoint.")
     start_time = time.time()
     try:
         client = OpenAI(api_key=config["api_key"], base_url=config["url"])
@@ -133,6 +154,7 @@ def benchmark_provider(name, config):
     except Exception:
         return name, "Failed", "-", "-", "-"
 
+
 def main(selected_providers=None):
     if selected_providers:
         filtered_providers = {
@@ -157,9 +179,21 @@ def main(selected_providers=None):
 
 if __name__ == "__main__":
     logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s"
+        level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
     )
 
-    selected = [r"^Tencent",r"^DeepSeek",r"^Alibaba",r"^Fireworks",r"^Fireworks",r"^Together",r"^Deepinfra",r"^Siliconflow",r"^Novita"]
+    selected = [
+        r"^Tencent",
+        r"^DeepSeek",
+        r"^Alibaba",
+        r"^Fireworks",
+        r"^Fireworks",
+        r"^Together",
+        r"^Deepinfra",
+        r"^Siliconflow",
+        r"^Novita",
+        r"^Openrouter",
+        r"^Targon",
+    ]
+
     main(selected)

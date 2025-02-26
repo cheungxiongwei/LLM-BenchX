@@ -1,5 +1,7 @@
 # LLM-BenchX
 
+[![language](https://img.shields.io/badge/language-en__US-blue?style=flat)](https://github.com/cheungxiongwei/LLM-BenchX/blob/main/README_enUS.md)
+
 ## 项目简介
 
 🔥LLM-BenchX 是一个轻量级、易于使用的 LLM（大语言模型）性能基准测试工具，支持多种 LLM 提供商，包括 OpenAI、DeepSeek 等。它能够快速测量不同 LLM 在响应时间、吞吐率（token/s）等关键性能指标上的表现。
@@ -37,117 +39,54 @@ python benchmark.py
 ```
 
 ## 输出示例
-result 1
-```
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Provider                    | Status   | Response Time   | Token/s     | Reply Preview                                         |
-+=============================+==========+=================+=============+=======================================================+
-| Tencent@deepseek-chat       | Success  | 2.59 sec        | 3.48 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Tencent@deepseek-reasoner   | Success  | 7.56 sec        | 1.19 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-chat      | Success  | 8.17 sec        | 1.10 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-reasoner  | Success  | 10.19 sec       | 0.79 tok/s  | Hello! How can I assist you today?...                 |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-chat     | Success  | 4.60 sec        | 8.25 tok/s  | Hello! How can I assist you today? Whether you hav... |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-reasoner | Success  | 4.08 sec        | 45.64 tok/s | <think>                                               |
-|                             |          |                 |             | Okay, the user just said "Hello". I should...         |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Together@deepseek-chat      | Success  | 2.60 sec        | 3.46 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-chat       | Success  | 2.24 sec        | 4.02 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-reasoner   | Success  | 130.09 sec      | 0.07 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-```
-
-result 2
 ```
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
 | Provider                          | Status   | Response Time   | Token/s     | Reply Preview                                         |
 +===================================+==========+=================+=============+=======================================================+
-| Tencent@deepseek-chat             | Failed   | -               | -           | -                                                     |
+| Tencent@deepseek-chat             | Success  | 2.59 sec        | 3.48 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Tencent@deepseek-reasoner         | Failed   | -               | -           | -                                                     |
+| Tencent@deepseek-reasoner         | Success  | 7.56 sec        | 1.19 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-chat            | Success  | 6.62 sec        | 1.36 tok/s  | Hello! How can I assist you today? 😊...               |
+| DeepSeek@deepseek-chat            | Success  | 8.06 sec        | 1.12 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-reasoner        | Success  | 16.41 sec       | 1.95 tok/s  | Hello! How can I assist you today? Whether you hav... |
+| DeepSeek@deepseek-reasoner        | Success  | 16.67 sec       | 0.48 tok/s  | Hello! How can I assist you today?...                 |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-chat           | Success  | 2.20 sec        | 4.09 tok/s  | Hello! How can I assist you today? 😊...               |
+| Fireworks@deepseek-chat           | Success  | 5.40 sec        | 5.93 tok/s  | Hello! 😊 How can I assist you today? Whether you h...|
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-reasoner       | Success  | 3.19 sec        | 31.67 tok/s | <think>                                               |
-|                                   |          |                 |             | Okay, the user just said "Hello". I should...         |
+| Fireworks@deepseek-reasoner       | Success  | 3.11 sec        | 36.62 tok/s | <think>                                               |
+|                                   |          |                 |             | Okay, the user greeted me with "Hello". I ...         |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Together@deepseek-chat            | Success  | 8.12 sec        | 1.11 tok/s  | Hello! How can I assist you today? 😊...               |
+| Together@deepseek-chat            | Success  | 1.88 sec        | 4.79 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-chat             | Success  | 24.96 sec       | 0.36 tok/s  | Hello! How can I assist you today? 😊...               |
+| Alibaba@deepseek-chat             | Success  | 6.31 sec        | 4.60 tok/s  | Hello! How can I assist you today? Whether you hav... |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-reasoner         | Success  | 13.04 sec       | 0.61 tok/s  | Hello! How can I assist you today?...                 |
+| Alibaba@deepseek-reasoner         | Success  | 13.69 sec       | 0.58 tok/s  | Hello! How can I assist you today?...                 |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Deepinfra@deepseek-chat           | Success  | 8.04 sec        | 4.73 tok/s  | Hello! How can I assist you today? Whether you hav... |
+| Deepinfra@deepseek-chat           | Success  | 3.81 sec        | 2.36 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Deepinfra@deepseek-reasoner       | Success  | 12.26 sec       | 9.71 tok/s  | <think>                                               |
-|                                   |          |                 |             | Okay, let me see. The user just said "Hell...         |
+| Deepinfra@deepseek-reasoner       | Success  | 9.36 sec        | 8.76 tok/s  | <think>                                               |
+|                                   |          |                 |             | Okay, the user greeted me with "Hello". I ...         |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@deepseek-chat         | Success  | 2.68 sec        | 11.19 tok/s | Hello! How can I assist you today? Whether you hav... |
+| Siliconflow@deepseek-chat         | Success  | 2.31 sec        | 3.46 tok/s  | Hello! How can I assist you today?...                 |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@deepseek-reasoner     | Success  | 4.07 sec        | 1.97 tok/s  | Hello! How can I assist you today?...                 |
+| Siliconflow@deepseek-reasoner     | Success  | 3.78 sec        | 2.38 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@pro/deepseek-chat     | Failed   | -               | -           | -                                                     |
+| Siliconflow@pro/deepseek-chat     | Success  | 5.98 sec        | 6.86 tok/s  | Hello! How can I assist you today? Whether you hav... |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@pro/deepseek-reasoner | Failed   | -               | -           | -                                                     |
+| Siliconflow@pro/deepseek-reasoner | Success  | 3.81 sec        | 2.10 tok/s  | Hello! How can I assist you today?...                 |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Novita@deepseek-chat              | Success  | 2.74 sec        | 3.29 tok/s  | Hello! How can I assist you today? 😊...               |
+| Novita@deepseek-chat              | Success  | 3.01 sec        | 2.99 tok/s  | Hello! How can I assist you today? 😊...              |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Novita@deepseek-reasoner          | Success  | 14.64 sec       | 7.92 tok/s  | <think>                                               |
-|                                   |          |                 |             | Okay, the user just said "Hello". I should...         |
+| Novita@deepseek-reasoner          | Success  | 5.22 sec        | 9.58 tok/s  | <think>                                               |
+|                                   |          |                 |             | Okay, the user greeted me with "Hello". I ...         |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-```
-
-result 3
-```
+| Openrouter@deepseek-chat          | Success  | 1.73 sec        | 0.00 tok/s  | ...                                                   |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Provider                          | Status   | Response Time   | Token/s     | Reply Preview                                         |
-+===================================+==========+=================+=============+=======================================================+
-| Tencent@deepseek-chat             | Failed   | -               | -           | -                                                     |
+| Openrouter@deepseek-reasoner      | Success  | 2.99 sec        | 2.67 tok/s  | Hello! How can I assist you today?...                 |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Tencent@deepseek-reasoner         | Failed   | -               | -           | -                                                     |
+| Targon@deepseek-chat              | Failed   | -               | -           | -                                                     |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-chat            | Success  | 6.62 sec        | 1.36 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| DeepSeek@deepseek-reasoner        | Success  | 11.82 sec       | 0.68 tok/s  | Hello! How can I assist you today?...                 |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-chat           | Success  | 2.65 sec        | 3.40 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Fireworks@deepseek-reasoner       | Success  | 2.77 sec        | 45.80 tok/s | <think>                                               |
-|                                   |          |                 |             | Okay, the user just said "Hello." I need t...         |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Together@deepseek-chat            | Success  | 1.82 sec        | 4.96 tok/s  | Hello! How can I assist you today? 😊...               |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-chat             | Success  | 5.75 sec        | 5.57 tok/s  | Hello! How can I assist you today? Whether you hav... |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Alibaba@deepseek-reasoner         | Success  | 6.83 sec        | 1.17 tok/s  | Hello! How can I assist you today?...                 |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Deepinfra@deepseek-chat           | Success  | 7.53 sec        | 4.92 tok/s  | Hello! How can I assist you today? Whether you hav... |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Deepinfra@deepseek-reasoner       | Success  | 14.10 sec       | 7.45 tok/s  | <think>                                               |
-|                                   |          |                 |             | Okay, the user just said "Hello." Let me t...         |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@deepseek-chat         | Success  | 2.92 sec        | 12.66 tok/s | Hello! 😊 How can I assist you today? Whether you h... |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@deepseek-reasoner     | Success  | 59.01 sec       | 0.15 tok/s  | Hello! How can I assist you today? ✨...               |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@pro/deepseek-chat     | Failed   | -               | -           | -                                                     |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Siliconflow@pro/deepseek-reasoner | Failed   | -               | -           | -                                                     |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Novita@deepseek-chat              | Success  | 3.62 sec        | 11.06 tok/s | Hello! How can I assist you today? Whether you hav... |
-+-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
-| Novita@deepseek-reasoner          | Success  | 32.56 sec       | 2.40 tok/s  | <think>                                               |
-|                                   |          |                 |             | Okay, the user greeted me with "Hello." I ...         |
+| Targon@deepseek-reasoner          | Failed   | -               | -           | -                                                     |
 +-----------------------------------+----------+-----------------+-------------+-------------------------------------------------------+
 ```
 
